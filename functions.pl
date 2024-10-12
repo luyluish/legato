@@ -1,6 +1,6 @@
 % Função para normalizar as entradas e saídas pro formato do dataset
 % (sem espaços desnecessários nem letras maiúsculas).
-normalizar_string(Entrada, Saida) :-
+normalizar(Entrada, Saida) :-
     string_lower(Entrada, Baixa),
     normalize_space(string(Saida), Baixa).
 
@@ -53,28 +53,28 @@ recomendar(Musica, Artista, Recomendacoes, ArtistasRecomendacoes) :-
 recomendar_musica :-
     write('Digite o nome da música: '), nl,
     read_line_to_string(user_input, MusicaInput),
-    normalizar_string(MusicaInput, MusicaNormalizada),
+    normalizar(MusicaInput, MusicaNormalizada),
     write('Digite o nome do artista: '), nl,
     read_line_to_string(user_input, ArtistaInput),
-    normalizar_string(ArtistaInput, ArtistaNormalizada),
+    normalizar(ArtistaInput, ArtistaNormalizada),
     
-    (   song(_, ArtistaBanco, _, MusicaBanco, _, _, _, _, _, _, _, _, _, _),
-        normalizar_string(MusicaBanco, MusicaBancoNormalizada),
-        normalizar_string(ArtistaBanco, ArtistaBancoNormalizada),
-        MusicaBancoNormalizada = MusicaNormalizada, 
-        ArtistaBancoNormalizada = ArtistaNormalizada
-    ->  recomendar(MusicaBanco, ArtistaBanco, Recomendacoes, ArtistasRecomendacoes),
+    (   song(_, ArtistaTemplate, _, MusicaTemplate, _, _, _, _, _, _, _, _, _, _),
+        normalizar(MusicaTemplate, MusicaTemplateNormalizada),
+        normalizar(ArtistaTemplate, ArtistaTemplateNormalizada),
+        MusicaTemplateNormalizada = MusicaNormalizada, 
+        ArtistaTemplateNormalizada = ArtistaNormalizada
+    ->  recomendar(MusicaTemplate, ArtistaTemplate, Recomendacoes, ArtistasRecomendacoes),
         (   Recomendacoes \= []
         ->  write('Aqui estão algumas músicas recomendadas baseadas em ('),
-            write(MusicaBanco), write(' - '), write(ArtistaBanco), write('):'), nl,
-            exibir_recomendacoes(Recomendacoes, ArtistasRecomendacoes)
+            write(MusicaTemplate), write(' - '), write(ArtistaTemplate), write('):'), nl,
+            print_recomendacoes(Recomendacoes, ArtistasRecomendacoes)
         ;   write('Nenhuma recomendação encontrada.'), nl
         )
     ;   write('Música ou artista não encontrados.'), nl
     ).
 
-exibir_recomendacoes([], []) :- 
+print_recomendacoes([], []) :- 
     true. % Caso não haja músicas, não faz nada.
-exibir_recomendacoes([Musica|RestMusicas], [Artista|RestArtistas]) :- 
+print_recomendacoes([Musica|RestMusicas], [Artista|RestArtistas]) :- 
     write('• '), write(Musica), write(' - '), write(Artista), nl,
-    exibir_recomendacoes(RestMusicas, RestArtistas).
+    print_recomendacoes(RestMusicas, RestArtistas).
