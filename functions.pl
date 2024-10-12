@@ -7,7 +7,7 @@ normalizar_string(Entrada, Saida) :-
 % Comparar os atributos de duas músicas, fazendo uma mini-clusterização
 % ao pegar a distância dos dois.
 similaridade(Id1, Id2, Dif) :-
-    song(Id1, _, _, _, _, Dance1, Energy1, Loud1, _, Speech1, _, Val1, _),
+    song(Id1, _, _, _, _, Dance1, Energy1, Loud1, _, Speech1, _, Val1, _, _),
     song(Id2, _, _, _, _, Dance2, Energy2, Loud2, _, Speech2, _, Val2, _, _),
     Dif is abs(Dance1 - Dance2) + abs(Energy1 - Energy2) + abs(Loud1 - Loud2) + abs(Speech1 - Speech2) + abs(Val1 - Val2).
 
