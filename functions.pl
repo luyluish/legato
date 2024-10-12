@@ -51,10 +51,10 @@ recomendar(Musica, Artista, Recomendacoes, ArtistasRecomendacoes) :-
 % Comando principal, pede uma musica e artista do usuário e lança como parâmetro
 % para a função de recomendação. Depois, printa os resultados.
 recomendar_musica :-
-    write('Digite o nome da música: '), nl,
+    ansi_term:ansi_format([fg(cyan)],'Digite o nome da música: ', []), nl,
     read_line_to_string(user_input, MusicaInput),
     normalizar(MusicaInput, MusicaNormalizada),
-    write('Digite o nome do artista: '), nl,
+    ansi_term:ansi_format([fg(cyan)],'Digite o nome do artista: ', []), nl,
     read_line_to_string(user_input, ArtistaInput),
     normalizar(ArtistaInput, ArtistaNormalizada),
     
@@ -65,12 +65,12 @@ recomendar_musica :-
         ArtistaTemplateNormalizada = ArtistaNormalizada
     ->  recomendar(MusicaTemplate, ArtistaTemplate, Recomendacoes, ArtistasRecomendacoes),
         (   Recomendacoes \= []
-        ->  write('Aqui estão algumas músicas recomendadas baseadas em ('),
-            write(MusicaTemplate), write(' - '), write(ArtistaTemplate), write('):'), nl,
+        ->  ansi_term:ansi_format([fg(cyan)],'Aqui estão algumas músicas recomendadas baseadas em (', []),
+            ansi_term:ansi_format([fg(cyan)],MusicaTemplate, []), ansi_term:ansi_format([fg(cyan)],' - ', []), ansi_term:ansi_format([fg(cyan)],ArtistaTemplate, []), ansi_term:ansi_format([fg(cyan)],'):', []), nl,
             print_recomendacoes(Recomendacoes, ArtistasRecomendacoes)
-        ;   write('Nenhuma recomendação encontrada.'), nl
+        ;   ansi_term:ansi_format([fg(cyan)],'Nenhuma recomendação encontrada.', []), nl
         )
-    ;   write('Música ou artista não encontrados.'), nl
+    ;   ansi_term:ansi_format([fg(cyan)],'Música ou artista não encontrados.', []), nl
     ).
 
 print_recomendacoes([], []) :- 
