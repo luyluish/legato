@@ -17,7 +17,7 @@ Table of Contents
 
 <a id ="overview"></a>
 
-## ♪ Overview
+## 🎶 Overview
 
 The following software was made as an assignment for the UFPB "Applied Computer Science Logic" course. In the referred assignemnt, each group was tasked to make a project written in Prolog, a programming language based on first-order logic.
 
@@ -25,7 +25,7 @@ Thus, **Legato** was born from the idea of using first-order logic to recommend 
 
 <a id ="funcionality"></a>
 
-## ♫ Funcionality
+## 🎵 Funcionality
 In order to launch **Legato**, you will need to have an enviroment that runs Prolog files, such as SWI-Prolog. Once you have it installed, just consult the file **menu.pl** and the execution will start.
 
 When first launching Legato, you will be greeted with a menu, asking whether you want to get a song recommendation or exit the program. The recommendation algorithm works as following:
@@ -49,7 +49,7 @@ Let's say you want a recommendation based on "The Adults are Talking" by "The St
 
 <a id ="files"></a>
 
-## ♣️ Files
+## 🎧 Files
 
 - ``songs.pl`` contains the declaration of all 114.000 songs present in the Spotify dataset we based the project on. Each line is a different song.
 
@@ -61,7 +61,7 @@ Let's say you want a recommendation based on "The Adults are Talking" by "The St
 
 <a id ="tech-used"></a>
 
-## ♦️ Tech Used
+## 🌐 Tech Used
 
 <a href="https://www.swi-prolog.org/"><img src="https://img.shields.io/badge/PROLOG-9e193d?style=for-the-badge" alt="PROLOG" />
 </a>
