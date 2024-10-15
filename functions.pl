@@ -57,6 +57,19 @@ recomendar_musica :-
     ansi_term:ansi_format([fg(cyan)],'Digite o nome do artista: ', []), nl,
     read_line_to_string(user_input, ArtistaInput),
     normalizar(ArtistaInput, ArtistaNormalizada),
+
+        % Printa a primeira arte ASCII
+    write('  ,-.       _,---._ __  / \\'), nl,
+    write(' /  )    .-\'       `./ /   \\'), nl,
+    write('(  (   ,\'            `/    /|'), nl,
+    write(' \\  `-"             \\\'\\   / |'), nl,
+    write('  `.              ,  \\ \\ /    |'), nl,
+    write('   /`.          ,\'-`----Y      |'), nl,
+    write('  (            ;         |      |''), nl,
+    write('  |  ,-.    ,\'-\'       |     /'), nl,
+    write('  |  | (   |             |   /'), nl,
+    write('  )  |  \\  `.___________| /'), nl,
+    write('  `--\'   `--\''), nl,
     
     (   song(_, ArtistaTemplate, _, MusicaTemplate, _, _, _, _, _, _, _, _, _, _),
         normalizar(MusicaTemplate, MusicaTemplateNormalizada),
