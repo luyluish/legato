@@ -17,7 +17,7 @@ Table of Contents
 
 <a id ="overview"></a>
 
-## 🎶 Overview
+## 🎶 Overview 
 
 The following software was made as an assignment for the UFPB "Applied Computer Science Logic" course. In the referred assignemnt, each group was tasked to make a project written in Prolog, a programming language based on first-order logic.
 
